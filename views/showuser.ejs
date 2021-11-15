@@ -1,0 +1,34 @@
+<%- include ("./partials/header") %>  
+
+    <div class="container py-3">
+        <div class="jumbotron">
+            <h1><%= currentUser.username %></h1>
+            <h3>Hello, <%= currentUser.email %></h3>
+            <h3>Hey, <%= currentUser.firstName %> <%= currentUser.lastName %> </h3>
+        </div>
+    </div>
+
+    <div class="container">
+    <h1 class="text-center py-5 text-primary">These are the posts uploaded by you!</h1>
+    <div style="width: 400px;" class="thumbnail">
+        <% files.forEach(function(file){ %> 
+
+            <%if( file.user == currentUser.username ) { %>
+        
+                <a href="/uploads/<%= file.image %>"><%= file.image %></a>
+            
+                <p><%= file.description %></p>
+                <form method="POST" action="/delete/<%= file._id %>?_method=DELETE" enctype="multipart/form-data">
+                <button class="btn btn-danger mb-4">Delete</button>
+                </form>
+                <hr>
+            <% } %>
+       
+        <% })%>
+    </div>
+    <hr>
+    <a class="py-5" href="/posts/new">Go Back to Upload Page!</a>
+    <a class="py-5" href="/">Go Back to home Page!</a>
+    </div>
+
+<%- include ("./partials/footer") %>

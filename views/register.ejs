@@ -1,0 +1,19 @@
+<%- include ("./partials/header") %>
+
+
+    <form class="box" action="/register" method="POST">
+    	<h1>Register</h1>
+
+		<input type="text" name="firstName" placeholder="First Name">
+		<input type="text" name="lastName" placeholder="Last Name">
+		<input type="text" name="username" placeholder="Username">
+		<input type="email" name="email" placeholder="sadiqali@gmail.com">
+		<!-- <label for="avatar">Profile Image</label>
+		<input type="file" id="avatar" name="avatar" accept="image/*" required> -->
+		<input type="password" name="password" placeholder="Password">
+    	
+    	<input type="submit" value="Sign-up">
+    	<a href="/login">Login?</a> 
+	</form>
+
+<%- include ("./partials/footer") %>

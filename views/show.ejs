@@ -1,0 +1,28 @@
+<%- include ("./partials/header") %>
+
+<div class="container pt-3">
+    <div class="jumbotron">
+        <h3 class="text-center"><span class="oi oi-document"></span>Welcome to the Show Page!</h3>
+    </div>
+</div>
+
+<div class="container-fluid px-5">
+        <div class="thumbnail row text-center" style="display:flex; flex-wrap: wrap;">
+            <% files.forEach(function(file){ %>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="thumbnail">
+                        <h5>Uploaded by: <%= file.user %></h5>
+                        <a href="./uploads/<%= file.image %>"><%= file.image %></a>
+                        <p><%= file.description %></p>
+                        <!-- <form method="POST" action="/delete/<%= file._id %>?_method=DELETE" enctype="multipart/form-data">
+                        <button class="btn btn-danger mb-4">Delete</button>
+                        </form> -->
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+</div>
+
+<a class="nav-link text-center" href="/posts/new">Go Back to Upload Page!</a>
+
+<%- include ("./partials/footer") %>
